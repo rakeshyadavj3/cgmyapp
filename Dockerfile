@@ -4,5 +4,5 @@ RUN pwd
 
 FROM tomcat
 RUN pwd
-COPY *.jar /var/tomcat/webapps
+COPY . /usr/local/tomcat/webapps
 RUN pwd
