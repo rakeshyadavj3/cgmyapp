@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: my-cg-myapp-pt
-        image: 
+        image: 423313918070.dkr.ecr.ap-northeast-1.amazonaws.com/petclinic
         imagePullPolicy: Always
         ports:
         - containerPort: 8086
