@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cg-myapp-pt
+  name: cg-myapp-pt
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cg-myapp-pt
+  template:
+    metadata:
+      labels:
+        app: cg-myapp-pt
+    spec:
+      containers:
+      - name: my-cg-myapp-pt
+        image: 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8086
+          name: http
+          protocol: TCP
+#Service Type Loadbalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels: 
+    app: cg-myapp-pt
+    k8s-app: cg-myapp-pt
+  name: cg-myapp-pt
+spec:
+  selector:
+    app: cg-myapp-pt
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8086
+  type: Loadbalancer
