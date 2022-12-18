@@ -39,4 +39,4 @@ spec:
     port: 80
     protocol: TCP
     targetPort: 8086
-  type: Loadbalancer
+  type: LoadBalancer
